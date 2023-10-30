@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { iStep } from 'src/app/interfaces/istep.interface';
 
 @Component({
   selector: 'app-escena',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class EscenaComponent {
 
+  @Input()
+  public frasesList: iStep[] = [];
 }
