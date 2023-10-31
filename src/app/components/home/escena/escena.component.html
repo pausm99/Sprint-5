@@ -1,6 +1,20 @@
-<ul>
-  <li *ngFor="let frase of frasesList">
+<div class="card" *ngFor="let frase of frasesList; let i = index; let last = last; let first = first">
+  <div class="image-div" [style.background-color]="frase.bgcolor">
+    <img [src]="frase.img">
+  </div>
+  <div class="text-div">
     <h3>{{ frase.title }}</h3>
     <p>{{ frase.description }}</p>
-  </li>
-</ul>
+    <div class="controls">
+      <div class="control-left">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot dot-current"></span>
+      </div>
+      <div class="control-right">
+        <div *ngIf="!last" class="arrow-div arrow-left"><i class="fa-solid fa-arrow-right"></i></div>
+        <div *ngIf="last || !first" class="arrow-div arrow-right"><i class="fa-solid fa-arrow-left"></i></div>
+      </div>
+    </div>
+  </div>
+</div>
