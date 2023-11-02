@@ -21,4 +21,8 @@ export class EscenaComponent {
     if (this.currentStep !== this.frasesList.length-1) ++this.currentStep;
   }
 
+  public moveToDot(i: number): void {
+    this.currentStep = i;
+  }
+
 }

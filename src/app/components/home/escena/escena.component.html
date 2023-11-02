@@ -7,7 +7,7 @@
     <p>{{ frase.description }}</p>
     <div class="controls">
       <div class="control-left">
-        <span *ngFor="let frase of frasesList; let i = index" class="dot" [ngClass]="{ 'dot-current' : currentStep === i }"></span>
+        <span (click)="moveToDot(i)" *ngFor="let frase of frasesList; let i = index" class="dot" [ngClass]="{ 'dot-current' : currentStep === i }"></span>
       </div>
       <div class="control-right">
         <button (click)="stepBack()" *ngIf="last || !first" class="arrow-div arrow-right"><i class="fa-solid fa-arrow-left"></i></button>
