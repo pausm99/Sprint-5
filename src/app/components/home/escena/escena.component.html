@@ -1,4 +1,4 @@
-<div class="card" *ngFor="let frase of frasesList; let i = index; let last = last; let first = first">
+<div class="card" [ngClass]="{'current-card': i == currentStep}" *ngFor="let frase of frasesList; let i = index; let last = last; let first = first">
   <div class="image-div" [style.background-color]="frase.bgcolor">
     <img [src]="frase.img">
   </div>
@@ -7,13 +7,11 @@
     <p>{{ frase.description }}</p>
     <div class="controls">
       <div class="control-left">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot dot-current"></span>
+        <span *ngFor="let frase of frasesList; let i = index" class="dot" [ngClass]="{ 'dot-current' : currentStep === i }"></span>
       </div>
       <div class="control-right">
-        <div *ngIf="!last" class="arrow-div arrow-left"><i class="fa-solid fa-arrow-right"></i></div>
-        <div *ngIf="last || !first" class="arrow-div arrow-right"><i class="fa-solid fa-arrow-left"></i></div>
+        <button (click)="stepBack()" *ngIf="last || !first" class="arrow-div arrow-right"><i class="fa-solid fa-arrow-left"></i></button>
+        <button (click)="stepForward()" *ngIf="!last" class="arrow-div arrow-left"><i class="fa-solid fa-arrow-right"></i></button>
       </div>
     </div>
   </div>

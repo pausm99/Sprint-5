@@ -7,7 +7,7 @@ import { StepsService } from 'src/app/services/steps.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-
+  
   constructor(public stepService: StepsService) {}
 
 }
